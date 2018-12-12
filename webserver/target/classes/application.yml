@@ -1,0 +1,36 @@
+# 默认的profile为dev，其他环境通过指定启动参数使用不同的profile，比如：
+#   测试环境：java -jar my-spring-boot.jar --spring.profiles.active=test
+#   生产环境：java -jar my-spring-boot.jar --spring.profiles.active=prod
+# 开发环境配置
+spring:
+  profiles: dev
+  datasource:
+    url: "jdbc:mysql://192.168.17.128:3306/eps?autoReconnect=true&autoReconnectForPools=true&useUnicode=true&characterEncoding=utf8"
+    username: root
+    password: xxx
+    diriver-class-name: com.mysql.jdbc.Driver
+  wxSns:
+    appid: wx8d062051de50f1ed
+    secret: 5dd487b0d4c4632c4e5627abcd3227c9
+  fileLocation: upload-dir
+  server:
+    address: 192.168.199.120
+    port: 9091
+---
+# 测试环境配置
+eps:
+  profiles: test
+
+---
+# 生产环境配置
+spring:
+  profiles: pro
+  datasource:
+    url: "jdbc:mysql://localhost:3306/eps?autoReconnect=true&autoReconnectForPools=true&useUnicode=true&characterEncoding=utf8"
+    username: eps
+    password: xxx
+    diriver-class-name: com.mysql.jdbc.Driver
+  wxSns:
+      appid: wx8d062051de50f1ed
+      secret: 5dd487b0d4c4632c4e5627abcd3227c9
+  fileLocation: /data/data-lake/eps/upload-dir
