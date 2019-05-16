@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>2018级3班信息基础测试考试</title>
+    <style>
+        .description {
+            margin-left : 600px;
+            padding-top : 10px;
+        }
+        #welcome {
+            float: left;
+        }
+        #content {
+            width: 1024;
+        }
+        h2 {
+            line-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div id="makefriends">
+        <img id="welcome" src="/image/makefriends.jpg" alt="欢迎你">
+        <div class="description">
+            <h2>我们已经收到你的交友申请，后续会发送邮件到你邮箱，请注意查收！请核对你的信息：</h2>
+            <p><th:block th:utext="${result}"/></p>
+        </div>
+    </div>
+</body>
+</html>

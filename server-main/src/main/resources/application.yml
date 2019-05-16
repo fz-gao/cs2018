@@ -1,0 +1,32 @@
+server:
+  port: 8089
+  servlet:
+    context-path: /cs2018
+
+spring:
+  profiles:
+    active: @spring.active@
+  resources:
+    add-mappings: false
+  mvc:
+    throw-exception-if-no-handler-found: true
+    view:
+      prefix: /WEB-INF
+  devtools:
+    restart:
+      enabled: false
+      additional-paths: src/main/java
+      exclude: assets/**,WEB-INF/**,static/**
+  servlet:
+    multipart:
+      max-request-size: 100MB
+      max-file-size: 100MB
+
+mybatis-plus:
+  mapper-locations: classpath:cn/fvti/cs2018/ws/mapper/mapping/*.xml,classpath:mybatis/mapper/**/*.xml
+  typeAliasesPackage: cn.fvti.cs2018.ws.bean.model
+
+# Logger Config
+logging:
+  level:
+    cn.fvti: debug
